@@ -1,0 +1,38 @@
+  function carirepall() //fungsi berdasarkan merek, layanan , jenis 
+  {
+
+
+    var kec=document.getElementById('kecamatan').value;
+    var kec1=document.getElementById('kecamatan1').value;
+    var kec2=document.getElementById('kecamatan2').value;
+    console.log(kec);
+    console.log(kec1);
+    console.log(kec2);
+  
+  }
+
+         <strong> Merek </strong>
+                              <select class="form-control" id="id_merek" >
+                                <option value="all">Semua</option>
+                                <?php
+                                include("connect.php"); 
+                                $kecamatan1=pg_query("select * from merek ");
+                                while($rowkecamatan = pg_fetch_assoc($kecamatan1))
+                                {
+                                echo"<option value=".$rowkecamatan['merek_id'].">".$rowkecamatan['nama_merek']."</option>";
+                                }
+                                ?>
+                              </select>
+                                <br>
+                                  <strong> Layanan </strong>
+                                 <select class="form-control" id="id_layanan" >
+                                  <option value="all">Semua</option>
+                                <?php
+                                include("connect.php"); 
+                                $kecamatan2=pg_query("select * from layanan");
+                                while($rowkecamatan = pg_fetch_assoc($kecamatan2))
+                                {
+                                echo"<option value=".$rowkecamatan['layanan_id'].">".$rowkecamatan['nama_layananan']."</option>";
+                                }
+                                ?>
+                              </select>
